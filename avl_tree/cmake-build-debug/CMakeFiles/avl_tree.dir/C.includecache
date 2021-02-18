@@ -1,0 +1,34 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/jimeiwei/Documents/algoritbms-with-c/avl_tree/avl_tree.c
+avl_tree.h
+/Users/jimeiwei/Documents/algoritbms-with-c/avl_tree/avl_tree.h
+
+/Users/jimeiwei/Documents/algoritbms-with-c/avl_tree/avl_tree.h
+comm.h
+/Users/jimeiwei/Documents/algoritbms-with-c/avl_tree/comm.h
+
+/Users/jimeiwei/Documents/algoritbms-with-c/avl_tree/comm.c
+comm.h
+/Users/jimeiwei/Documents/algoritbms-with-c/avl_tree/comm.h
+
+/Users/jimeiwei/Documents/algoritbms-with-c/avl_tree/comm.h
+stdlib.h
+/Users/jimeiwei/Documents/algoritbms-with-c/avl_tree/stdlib.h
+stdio.h
+/Users/jimeiwei/Documents/algoritbms-with-c/avl_tree/stdio.h
+assert.h
+/Users/jimeiwei/Documents/algoritbms-with-c/avl_tree/assert.h
+string.h
+/Users/jimeiwei/Documents/algoritbms-with-c/avl_tree/string.h
+
+/Users/jimeiwei/Documents/algoritbms-with-c/avl_tree/main.c
+stdio.h
+-
+
