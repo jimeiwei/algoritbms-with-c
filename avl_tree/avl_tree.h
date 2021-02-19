@@ -8,11 +8,20 @@
 
 #include "comm.h"
 
-#define AVL_TREE_SEARCH_LEFT    (0x1000)
-#define AVL_TREE_SEARCH_RIGHT   (0x1000 | 0X1)
-#define AVL_TREE_SEARCH_EQUAL   (0x1000 | 0X2)
-#define AVL_TREE_SEARCH_SUCC    (0x1000 | 0X3)
-#define AVL_TREE_SEARCH_FAIL    (0x1000 | 0X4)
+#define AVL_TREE_SEARCH_LEFT        (0x1000)
+#define AVL_TREE_SEARCH_RIGHT       (0x1000 | 0X1)
+#define AVL_TREE_SEARCH_EQUAL       (0x1000 | 0X2)
+#define AVL_TREE_SEARCH_SUCC        (0x1000 | 0X3)
+#define AVL_TREE_SEARCH_FAIL        (0x1000 | 0X4)
+
+#define AVL_TREE_INSERT_UPDATE      (0x1000 | 0X5)
+#define AVL_TREE_INSERT_SUCC_RIGHT  (0x1000 | 0X6)
+#define AVL_TREE_INSERT_SUCC_LEFT   (0x1000 | 0X7)
+#define AVL_TREE_INSERT_SUCC_ROOT   (0x1000 | 0X8)
+
+
+
+
 
 
 

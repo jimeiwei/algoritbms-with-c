@@ -161,7 +161,7 @@ WORD32 avl_tree_insert(AVL_TREE_KEY_T *p_node_key)
 {
     WORD32 rc = 0;
     AVL_TREE_NODE_T *p_avl_tree_insert_node = NULL;
-    AVL_TREE_NODE_T *p_avl_tree_root_node = NULL;
+    AVL_TREE_NODE_T *p_avl_tree_curr_parent_node = NULL;
     AVL_TREE_NODE_T *p_avl_tree_curr_node = NULL;
 
     COMM_CHECK_POINT(p_node_key);
@@ -170,24 +170,52 @@ WORD32 avl_tree_insert(AVL_TREE_KEY_T *p_node_key)
     p_avl_tree_insert_node = (AVL_TREE_NODE_T *)malloc(sizeof(AVL_TREE_NODE_T));
     COMM_CHECK_POINT(p_avl_tree_insert_node);
     memcpy(p_avl_tree_insert_node->p_node_key, p_node_key, sizeof(AVL_TREE_KEY_T));
+	p_avl_tree_insert_node->p_left  = NULL;
+	p_avl_tree_insert_node->p_right = NULL;
 
-    p_avl_tree_root_node = p_avl_tree_mng->p_root_node;
+	p_avl_tree_curr_node = p_avl_tree_mng->p_root_node;
+	if (p_avl_tree_curr_node == NULL)
+	{
+		/*empty tree*/
+		p_avl_tree_mng->p_root_node = p_avl_tree_insert_node;
+		p_avl_tree_insert_node->p_parent = NULL;
 
-    if(p_avl_tree_root_node == NULL)
-    {
-        p_avl_tree_mng->p_root_node = p_avl_tree_insert_node;
+		return AVL_TREE_INSERT_SUCC_ROOT;
+	}
+	else
+	{
+		while (p_avl_tree_curr_node != NULL)
+		{
+			p_avl_tree_curr_parent_node = p_avl_tree_curr_node;
 
-        return COMM_OK;
-    }
-    else
-    {
-        p_avl_tree_curr_node = p_avl_tree_root_node;
+			rc = avl_tree_compare(p_avl_tree_curr_parent_node->p_node_key, p_avl_tree_insert_node->p_node_key);
+			if(rc == AVL_TREE_SEARCH_LEFT)
+			{
+				p_avl_tree_curr_node = p_avl_tree_curr_parent_node->p_left;
+			}
+			else if (rc == AVL_TREE_SEARCH_RIGHT)
+			{
+				p_avl_tree_curr_node = p_avl_tree_curr_parent_node->p_right;
+			}
+			else        /*相同节点，更新*/
+			{
+				return AVL_TREE_INSERT_UPDATE;
+			}
+		}
 
-//        while(p_avl_tree_curr_node != NULL)
-//        {
-//            avl_tree_compare()
-//        }
-    }
+		if(rc == AVL_TREE_SEARCH_RIGHT)
+		{
+			p_avl_tree_curr_parent_node->p_right = p_avl_tree_insert_node;
+
+			return AVL_TREE_INSERT_SUCC_RIGHT;
+		}
+		else
+		{
+			p_avl_tree_curr_parent_node->p_left = p_avl_tree_insert_node;
+
+			return AVL_TREE_INSERT_SUCC_LEFT;
+		}
+	}
 }
 
 
