@@ -1,0 +1,1 @@
+/Library/Developer/CommandLineTools/usr/bin/cc -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.1.sdk -Wl,-search_paths_first -Wl,-headerpad_max_install_names  CMakeFiles/hash.dir/main.c.o CMakeFiles/hash.dir/hash_tbl.c.o CMakeFiles/hash.dir/comm.c.o  -o hash 

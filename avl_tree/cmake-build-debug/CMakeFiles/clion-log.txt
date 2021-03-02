@@ -1,4 +1,4 @@
-/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /Users/jimeiwei/Documents/algoritbms-with-c/avl_tree
+"/Users/jimeiwei/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/203.7148.70/CLion.app/Contents/bin/cmake/mac/bin/cmake" -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /Users/jimeiwei/Documents/git_codes/algoritbms-with-c/avl_tree
 -- The C compiler identification is AppleClang 12.0.0.12000032
 -- Check for working C compiler: /Library/Developer/CommandLineTools/usr/bin/cc
 -- Check for working C compiler: /Library/Developer/CommandLineTools/usr/bin/cc - works
@@ -8,4 +8,4 @@
 -- Detecting C compile features - done
 -- Configuring done
 -- Generating done
--- Build files have been written to: /Users/jimeiwei/Documents/algoritbms-with-c/avl_tree/cmake-build-debug
+-- Build files have been written to: /Users/jimeiwei/Documents/git_codes/algoritbms-with-c/avl_tree/cmake-build-debug

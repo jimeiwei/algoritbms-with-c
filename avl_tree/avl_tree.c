@@ -223,3 +223,18 @@ WORD32 avl_tree_insert(AVL_TREE_KEY_T *p_node_key)
 
 
 
+/*avl树的旋转*/
+
+/* 获取红黑树某个节点的平衡因子
+ * 传参为节点的键值
+ */
+WORD32 avl_tree_node_balance_para_get(AVL_TREE_KEY_T *p_node_key)
+{
+
+}
+
+
+
+
+
+

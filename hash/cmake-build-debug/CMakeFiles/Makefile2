@@ -64,16 +64,16 @@ RM = "/Users/jimeiwei/Library/Application Support/JetBrains/Toolbox/apps/CLion/c
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/jimeiwei/Documents/git_codes/algoritbms-with-c/avl_tree
+CMAKE_SOURCE_DIR = /Users/jimeiwei/Documents/git_codes/algoritbms-with-c/hash
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/jimeiwei/Documents/git_codes/algoritbms-with-c/avl_tree/cmake-build-debug
+CMAKE_BINARY_DIR = /Users/jimeiwei/Documents/git_codes/algoritbms-with-c/hash/cmake-build-debug
 
 #=============================================================================
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
-all: CMakeFiles/avl_tree.dir/all
+all: CMakeFiles/hash.dir/all
 
 .PHONY : all
 
@@ -83,36 +83,36 @@ preinstall:
 .PHONY : preinstall
 
 # The main recursive "clean" target.
-clean: CMakeFiles/avl_tree.dir/clean
+clean: CMakeFiles/hash.dir/clean
 
 .PHONY : clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/avl_tree.dir
+# Target rules for target CMakeFiles/hash.dir
 
 # All Build rule for target.
-CMakeFiles/avl_tree.dir/all:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/avl_tree.dir/build.make CMakeFiles/avl_tree.dir/depend
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/avl_tree.dir/build.make CMakeFiles/avl_tree.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/jimeiwei/Documents/git_codes/algoritbms-with-c/avl_tree/cmake-build-debug/CMakeFiles --progress-num=1,2,3,4 "Built target avl_tree"
-.PHONY : CMakeFiles/avl_tree.dir/all
+CMakeFiles/hash.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/hash.dir/build.make CMakeFiles/hash.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/hash.dir/build.make CMakeFiles/hash.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/jimeiwei/Documents/git_codes/algoritbms-with-c/hash/cmake-build-debug/CMakeFiles --progress-num=1,2,3,4 "Built target hash"
+.PHONY : CMakeFiles/hash.dir/all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/avl_tree.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/jimeiwei/Documents/git_codes/algoritbms-with-c/avl_tree/cmake-build-debug/CMakeFiles 4
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/avl_tree.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/jimeiwei/Documents/git_codes/algoritbms-with-c/avl_tree/cmake-build-debug/CMakeFiles 0
-.PHONY : CMakeFiles/avl_tree.dir/rule
+CMakeFiles/hash.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/jimeiwei/Documents/git_codes/algoritbms-with-c/hash/cmake-build-debug/CMakeFiles 4
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/hash.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/jimeiwei/Documents/git_codes/algoritbms-with-c/hash/cmake-build-debug/CMakeFiles 0
+.PHONY : CMakeFiles/hash.dir/rule
 
 # Convenience name for target.
-avl_tree: CMakeFiles/avl_tree.dir/rule
+hash: CMakeFiles/hash.dir/rule
 
-.PHONY : avl_tree
+.PHONY : hash
 
 # clean rule for target.
-CMakeFiles/avl_tree.dir/clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/avl_tree.dir/build.make CMakeFiles/avl_tree.dir/clean
-.PHONY : CMakeFiles/avl_tree.dir/clean
+CMakeFiles/hash.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/hash.dir/build.make CMakeFiles/hash.dir/clean
+.PHONY : CMakeFiles/hash.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

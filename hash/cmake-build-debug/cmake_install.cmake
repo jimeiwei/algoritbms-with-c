@@ -1,4 +1,4 @@
-# Install script for directory: /Users/jimeiwei/Documents/git_codes/algoritbms-with-c/avl_tree
+# Install script for directory: /Users/jimeiwei/Documents/git_codes/algoritbms-with-c/hash
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -40,5 +40,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/Users/jimeiwei/Documents/git_codes/algoritbms-with-c/avl_tree/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/Users/jimeiwei/Documents/git_codes/algoritbms-with-c/hash/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

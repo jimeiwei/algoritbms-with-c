@@ -8,38 +8,38 @@
 		<Option virtualFolders="CMake Files\;"/>
 		<Build>
 			<Target title="all">
-				<Option working_dir="/Users/jimeiwei/Documents/algoritbms-with-c/avl_tree/cmake-build-debug"/>
+				<Option working_dir="/Users/jimeiwei/Documents/git_codes/algoritbms-with-c/avl_tree/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j12 -f &quot;/Users/jimeiwei/Documents/algoritbms-with-c/avl_tree/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
-					<CompileFile command="/usr/bin/make -j12 -f &quot;/Users/jimeiwei/Documents/algoritbms-with-c/avl_tree/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j12 -f &quot;/Users/jimeiwei/Documents/algoritbms-with-c/avl_tree/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j12 -f &quot;/Users/jimeiwei/Documents/algoritbms-with-c/avl_tree/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j12 -f &quot;/Users/jimeiwei/Documents/git_codes/algoritbms-with-c/avl_tree/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/Users/jimeiwei/Documents/git_codes/algoritbms-with-c/avl_tree/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/Users/jimeiwei/Documents/git_codes/algoritbms-with-c/avl_tree/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/Users/jimeiwei/Documents/git_codes/algoritbms-with-c/avl_tree/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="rebuild_cache">
-				<Option working_dir="/Users/jimeiwei/Documents/algoritbms-with-c/avl_tree/cmake-build-debug"/>
+				<Option working_dir="/Users/jimeiwei/Documents/git_codes/algoritbms-with-c/avl_tree/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j12 -f &quot;/Users/jimeiwei/Documents/algoritbms-with-c/avl_tree/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
-					<CompileFile command="/usr/bin/make -j12 -f &quot;/Users/jimeiwei/Documents/algoritbms-with-c/avl_tree/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j12 -f &quot;/Users/jimeiwei/Documents/algoritbms-with-c/avl_tree/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j12 -f &quot;/Users/jimeiwei/Documents/algoritbms-with-c/avl_tree/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j12 -f &quot;/Users/jimeiwei/Documents/git_codes/algoritbms-with-c/avl_tree/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/Users/jimeiwei/Documents/git_codes/algoritbms-with-c/avl_tree/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/Users/jimeiwei/Documents/git_codes/algoritbms-with-c/avl_tree/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/Users/jimeiwei/Documents/git_codes/algoritbms-with-c/avl_tree/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="edit_cache">
-				<Option working_dir="/Users/jimeiwei/Documents/algoritbms-with-c/avl_tree/cmake-build-debug"/>
+				<Option working_dir="/Users/jimeiwei/Documents/git_codes/algoritbms-with-c/avl_tree/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j12 -f &quot;/Users/jimeiwei/Documents/algoritbms-with-c/avl_tree/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
-					<CompileFile command="/usr/bin/make -j12 -f &quot;/Users/jimeiwei/Documents/algoritbms-with-c/avl_tree/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j12 -f &quot;/Users/jimeiwei/Documents/algoritbms-with-c/avl_tree/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j12 -f &quot;/Users/jimeiwei/Documents/algoritbms-with-c/avl_tree/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j12 -f &quot;/Users/jimeiwei/Documents/git_codes/algoritbms-with-c/avl_tree/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/Users/jimeiwei/Documents/git_codes/algoritbms-with-c/avl_tree/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/Users/jimeiwei/Documents/git_codes/algoritbms-with-c/avl_tree/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/Users/jimeiwei/Documents/git_codes/algoritbms-with-c/avl_tree/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="avl_tree">
-				<Option output="/Users/jimeiwei/Documents/algoritbms-with-c/avl_tree/cmake-build-debug/avl_tree" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/Users/jimeiwei/Documents/algoritbms-with-c/avl_tree/cmake-build-debug"/>
+				<Option output="/Users/jimeiwei/Documents/git_codes/algoritbms-with-c/avl_tree/cmake-build-debug/avl_tree" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/jimeiwei/Documents/git_codes/algoritbms-with-c/avl_tree/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
@@ -50,15 +50,15 @@
 					<Add directory="/Library/Frameworks"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j12 -f &quot;/Users/jimeiwei/Documents/algoritbms-with-c/avl_tree/cmake-build-debug/Makefile&quot;  VERBOSE=1 avl_tree"/>
-					<CompileFile command="/usr/bin/make -j12 -f &quot;/Users/jimeiwei/Documents/algoritbms-with-c/avl_tree/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j12 -f &quot;/Users/jimeiwei/Documents/algoritbms-with-c/avl_tree/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j12 -f &quot;/Users/jimeiwei/Documents/algoritbms-with-c/avl_tree/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j12 -f &quot;/Users/jimeiwei/Documents/git_codes/algoritbms-with-c/avl_tree/cmake-build-debug/Makefile&quot;  VERBOSE=1 avl_tree"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/Users/jimeiwei/Documents/git_codes/algoritbms-with-c/avl_tree/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/Users/jimeiwei/Documents/git_codes/algoritbms-with-c/avl_tree/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/Users/jimeiwei/Documents/git_codes/algoritbms-with-c/avl_tree/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="avl_tree/fast">
-				<Option output="/Users/jimeiwei/Documents/algoritbms-with-c/avl_tree/cmake-build-debug/avl_tree" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/Users/jimeiwei/Documents/algoritbms-with-c/avl_tree/cmake-build-debug"/>
+				<Option output="/Users/jimeiwei/Documents/git_codes/algoritbms-with-c/avl_tree/cmake-build-debug/avl_tree" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/jimeiwei/Documents/git_codes/algoritbms-with-c/avl_tree/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
@@ -69,29 +69,29 @@
 					<Add directory="/Library/Frameworks"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j12 -f &quot;/Users/jimeiwei/Documents/algoritbms-with-c/avl_tree/cmake-build-debug/Makefile&quot;  VERBOSE=1 avl_tree/fast"/>
-					<CompileFile command="/usr/bin/make -j12 -f &quot;/Users/jimeiwei/Documents/algoritbms-with-c/avl_tree/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j12 -f &quot;/Users/jimeiwei/Documents/algoritbms-with-c/avl_tree/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j12 -f &quot;/Users/jimeiwei/Documents/algoritbms-with-c/avl_tree/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j12 -f &quot;/Users/jimeiwei/Documents/git_codes/algoritbms-with-c/avl_tree/cmake-build-debug/Makefile&quot;  VERBOSE=1 avl_tree/fast"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/Users/jimeiwei/Documents/git_codes/algoritbms-with-c/avl_tree/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/Users/jimeiwei/Documents/git_codes/algoritbms-with-c/avl_tree/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/Users/jimeiwei/Documents/git_codes/algoritbms-with-c/avl_tree/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/Users/jimeiwei/Documents/algoritbms-with-c/avl_tree/avl_tree.c">
+		<Unit filename="/Users/jimeiwei/Documents/git_codes/algoritbms-with-c/avl_tree/avl_tree.c">
 			<Option target="avl_tree"/>
 		</Unit>
-		<Unit filename="/Users/jimeiwei/Documents/algoritbms-with-c/avl_tree/avl_tree.h">
+		<Unit filename="/Users/jimeiwei/Documents/git_codes/algoritbms-with-c/avl_tree/avl_tree.h">
 			<Option target="avl_tree"/>
 		</Unit>
-		<Unit filename="/Users/jimeiwei/Documents/algoritbms-with-c/avl_tree/comm.c">
+		<Unit filename="/Users/jimeiwei/Documents/git_codes/algoritbms-with-c/avl_tree/comm.c">
 			<Option target="avl_tree"/>
 		</Unit>
-		<Unit filename="/Users/jimeiwei/Documents/algoritbms-with-c/avl_tree/comm.h">
+		<Unit filename="/Users/jimeiwei/Documents/git_codes/algoritbms-with-c/avl_tree/comm.h">
 			<Option target="avl_tree"/>
 		</Unit>
-		<Unit filename="/Users/jimeiwei/Documents/algoritbms-with-c/avl_tree/main.c">
+		<Unit filename="/Users/jimeiwei/Documents/git_codes/algoritbms-with-c/avl_tree/main.c">
 			<Option target="avl_tree"/>
 		</Unit>
-		<Unit filename="/Users/jimeiwei/Documents/algoritbms-with-c/avl_tree/CMakeLists.txt">
+		<Unit filename="/Users/jimeiwei/Documents/git_codes/algoritbms-with-c/avl_tree/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
 	</Project>

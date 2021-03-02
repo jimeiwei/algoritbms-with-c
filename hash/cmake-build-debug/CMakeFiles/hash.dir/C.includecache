@@ -1,0 +1,26 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/jimeiwei/Documents/git_codes/algoritbms-with-c/hash/comm.h
+stdlib.h
+/Users/jimeiwei/Documents/git_codes/algoritbms-with-c/hash/stdlib.h
+stdio.h
+/Users/jimeiwei/Documents/git_codes/algoritbms-with-c/hash/stdio.h
+assert.h
+/Users/jimeiwei/Documents/git_codes/algoritbms-with-c/hash/assert.h
+string.h
+/Users/jimeiwei/Documents/git_codes/algoritbms-with-c/hash/string.h
+
+/Users/jimeiwei/Documents/git_codes/algoritbms-with-c/hash/hash_tbl.c
+hash_tbl.h
+/Users/jimeiwei/Documents/git_codes/algoritbms-with-c/hash/hash_tbl.h
+
+/Users/jimeiwei/Documents/git_codes/algoritbms-with-c/hash/hash_tbl.h
+comm.h
+/Users/jimeiwei/Documents/git_codes/algoritbms-with-c/hash/comm.h
+

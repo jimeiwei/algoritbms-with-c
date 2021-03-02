@@ -54,19 +54,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake
+CMAKE_COMMAND = "/Users/jimeiwei/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/203.7148.70/CLion.app/Contents/bin/cmake/mac/bin/cmake"
 
 # The command to remove a file.
-RM = /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E rm -f
+RM = "/Users/jimeiwei/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/203.7148.70/CLion.app/Contents/bin/cmake/mac/bin/cmake" -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/jimeiwei/Documents/algoritbms-with-c/avl_tree
+CMAKE_SOURCE_DIR = /Users/jimeiwei/Documents/git_codes/algoritbms-with-c/avl_tree
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/jimeiwei/Documents/algoritbms-with-c/avl_tree/cmake-build-debug
+CMAKE_BINARY_DIR = /Users/jimeiwei/Documents/git_codes/algoritbms-with-c/avl_tree/cmake-build-debug
 
 # Include any dependencies generated for this target.
 include CMakeFiles/avl_tree.dir/depend.make
@@ -79,42 +79,42 @@ include CMakeFiles/avl_tree.dir/flags.make
 
 CMakeFiles/avl_tree.dir/main.c.o: CMakeFiles/avl_tree.dir/flags.make
 CMakeFiles/avl_tree.dir/main.c.o: ../main.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/jimeiwei/Documents/algoritbms-with-c/avl_tree/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/avl_tree.dir/main.c.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/avl_tree.dir/main.c.o   -c /Users/jimeiwei/Documents/algoritbms-with-c/avl_tree/main.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/jimeiwei/Documents/git_codes/algoritbms-with-c/avl_tree/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/avl_tree.dir/main.c.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/avl_tree.dir/main.c.o   -c /Users/jimeiwei/Documents/git_codes/algoritbms-with-c/avl_tree/main.c
 
 CMakeFiles/avl_tree.dir/main.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/avl_tree.dir/main.c.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/jimeiwei/Documents/algoritbms-with-c/avl_tree/main.c > CMakeFiles/avl_tree.dir/main.c.i
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/jimeiwei/Documents/git_codes/algoritbms-with-c/avl_tree/main.c > CMakeFiles/avl_tree.dir/main.c.i
 
 CMakeFiles/avl_tree.dir/main.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/avl_tree.dir/main.c.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/jimeiwei/Documents/algoritbms-with-c/avl_tree/main.c -o CMakeFiles/avl_tree.dir/main.c.s
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/jimeiwei/Documents/git_codes/algoritbms-with-c/avl_tree/main.c -o CMakeFiles/avl_tree.dir/main.c.s
 
 CMakeFiles/avl_tree.dir/avl_tree.c.o: CMakeFiles/avl_tree.dir/flags.make
 CMakeFiles/avl_tree.dir/avl_tree.c.o: ../avl_tree.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/jimeiwei/Documents/algoritbms-with-c/avl_tree/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/avl_tree.dir/avl_tree.c.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/avl_tree.dir/avl_tree.c.o   -c /Users/jimeiwei/Documents/algoritbms-with-c/avl_tree/avl_tree.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/jimeiwei/Documents/git_codes/algoritbms-with-c/avl_tree/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/avl_tree.dir/avl_tree.c.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/avl_tree.dir/avl_tree.c.o   -c /Users/jimeiwei/Documents/git_codes/algoritbms-with-c/avl_tree/avl_tree.c
 
 CMakeFiles/avl_tree.dir/avl_tree.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/avl_tree.dir/avl_tree.c.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/jimeiwei/Documents/algoritbms-with-c/avl_tree/avl_tree.c > CMakeFiles/avl_tree.dir/avl_tree.c.i
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/jimeiwei/Documents/git_codes/algoritbms-with-c/avl_tree/avl_tree.c > CMakeFiles/avl_tree.dir/avl_tree.c.i
 
 CMakeFiles/avl_tree.dir/avl_tree.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/avl_tree.dir/avl_tree.c.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/jimeiwei/Documents/algoritbms-with-c/avl_tree/avl_tree.c -o CMakeFiles/avl_tree.dir/avl_tree.c.s
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/jimeiwei/Documents/git_codes/algoritbms-with-c/avl_tree/avl_tree.c -o CMakeFiles/avl_tree.dir/avl_tree.c.s
 
 CMakeFiles/avl_tree.dir/comm.c.o: CMakeFiles/avl_tree.dir/flags.make
 CMakeFiles/avl_tree.dir/comm.c.o: ../comm.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/jimeiwei/Documents/algoritbms-with-c/avl_tree/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/avl_tree.dir/comm.c.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/avl_tree.dir/comm.c.o   -c /Users/jimeiwei/Documents/algoritbms-with-c/avl_tree/comm.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/jimeiwei/Documents/git_codes/algoritbms-with-c/avl_tree/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/avl_tree.dir/comm.c.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/avl_tree.dir/comm.c.o   -c /Users/jimeiwei/Documents/git_codes/algoritbms-with-c/avl_tree/comm.c
 
 CMakeFiles/avl_tree.dir/comm.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/avl_tree.dir/comm.c.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/jimeiwei/Documents/algoritbms-with-c/avl_tree/comm.c > CMakeFiles/avl_tree.dir/comm.c.i
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/jimeiwei/Documents/git_codes/algoritbms-with-c/avl_tree/comm.c > CMakeFiles/avl_tree.dir/comm.c.i
 
 CMakeFiles/avl_tree.dir/comm.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/avl_tree.dir/comm.c.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/jimeiwei/Documents/algoritbms-with-c/avl_tree/comm.c -o CMakeFiles/avl_tree.dir/comm.c.s
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/jimeiwei/Documents/git_codes/algoritbms-with-c/avl_tree/comm.c -o CMakeFiles/avl_tree.dir/comm.c.s
 
 # Object files for target avl_tree
 avl_tree_OBJECTS = \
@@ -130,7 +130,7 @@ avl_tree: CMakeFiles/avl_tree.dir/avl_tree.c.o
 avl_tree: CMakeFiles/avl_tree.dir/comm.c.o
 avl_tree: CMakeFiles/avl_tree.dir/build.make
 avl_tree: CMakeFiles/avl_tree.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/jimeiwei/Documents/algoritbms-with-c/avl_tree/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking C executable avl_tree"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/jimeiwei/Documents/git_codes/algoritbms-with-c/avl_tree/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking C executable avl_tree"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/avl_tree.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -143,6 +143,6 @@ CMakeFiles/avl_tree.dir/clean:
 .PHONY : CMakeFiles/avl_tree.dir/clean
 
 CMakeFiles/avl_tree.dir/depend:
-	cd /Users/jimeiwei/Documents/algoritbms-with-c/avl_tree/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/jimeiwei/Documents/algoritbms-with-c/avl_tree /Users/jimeiwei/Documents/algoritbms-with-c/avl_tree /Users/jimeiwei/Documents/algoritbms-with-c/avl_tree/cmake-build-debug /Users/jimeiwei/Documents/algoritbms-with-c/avl_tree/cmake-build-debug /Users/jimeiwei/Documents/algoritbms-with-c/avl_tree/cmake-build-debug/CMakeFiles/avl_tree.dir/DependInfo.cmake --color=$(COLOR)
+	cd /Users/jimeiwei/Documents/git_codes/algoritbms-with-c/avl_tree/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/jimeiwei/Documents/git_codes/algoritbms-with-c/avl_tree /Users/jimeiwei/Documents/git_codes/algoritbms-with-c/avl_tree /Users/jimeiwei/Documents/git_codes/algoritbms-with-c/avl_tree/cmake-build-debug /Users/jimeiwei/Documents/git_codes/algoritbms-with-c/avl_tree/cmake-build-debug /Users/jimeiwei/Documents/git_codes/algoritbms-with-c/avl_tree/cmake-build-debug/CMakeFiles/avl_tree.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/avl_tree.dir/depend
 

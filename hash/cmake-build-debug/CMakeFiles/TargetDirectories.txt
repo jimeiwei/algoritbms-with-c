@@ -1,0 +1,3 @@
+/Users/jimeiwei/Documents/git_codes/algoritbms-with-c/hash/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/Users/jimeiwei/Documents/git_codes/algoritbms-with-c/hash/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/jimeiwei/Documents/git_codes/algoritbms-with-c/hash/cmake-build-debug/CMakeFiles/hash.dir

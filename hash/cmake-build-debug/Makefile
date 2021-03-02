@@ -68,10 +68,10 @@ RM = "/Users/jimeiwei/Library/Application Support/JetBrains/Toolbox/apps/CLion/c
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/jimeiwei/Documents/git_codes/algoritbms-with-c/avl_tree
+CMAKE_SOURCE_DIR = /Users/jimeiwei/Documents/git_codes/algoritbms-with-c/hash
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/jimeiwei/Documents/git_codes/algoritbms-with-c/avl_tree/cmake-build-debug
+CMAKE_BINARY_DIR = /Users/jimeiwei/Documents/git_codes/algoritbms-with-c/hash/cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -100,9 +100,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/jimeiwei/Documents/git_codes/algoritbms-with-c/avl_tree/cmake-build-debug/CMakeFiles /Users/jimeiwei/Documents/git_codes/algoritbms-with-c/avl_tree/cmake-build-debug/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/jimeiwei/Documents/git_codes/algoritbms-with-c/hash/cmake-build-debug/CMakeFiles /Users/jimeiwei/Documents/git_codes/algoritbms-with-c/hash/cmake-build-debug/CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/jimeiwei/Documents/git_codes/algoritbms-with-c/avl_tree/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/jimeiwei/Documents/git_codes/algoritbms-with-c/hash/cmake-build-debug/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -131,44 +131,17 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named avl_tree
+# Target rules for targets named hash
 
 # Build rule for target.
-avl_tree: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 avl_tree
-.PHONY : avl_tree
+hash: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 hash
+.PHONY : hash
 
 # fast build rule for target.
-avl_tree/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/avl_tree.dir/build.make CMakeFiles/avl_tree.dir/build
-.PHONY : avl_tree/fast
-
-avl_tree.o: avl_tree.c.o
-
-.PHONY : avl_tree.o
-
-# target to build an object file
-avl_tree.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/avl_tree.dir/build.make CMakeFiles/avl_tree.dir/avl_tree.c.o
-.PHONY : avl_tree.c.o
-
-avl_tree.i: avl_tree.c.i
-
-.PHONY : avl_tree.i
-
-# target to preprocess a source file
-avl_tree.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/avl_tree.dir/build.make CMakeFiles/avl_tree.dir/avl_tree.c.i
-.PHONY : avl_tree.c.i
-
-avl_tree.s: avl_tree.c.s
-
-.PHONY : avl_tree.s
-
-# target to generate assembly for a file
-avl_tree.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/avl_tree.dir/build.make CMakeFiles/avl_tree.dir/avl_tree.c.s
-.PHONY : avl_tree.c.s
+hash/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/hash.dir/build.make CMakeFiles/hash.dir/build
+.PHONY : hash/fast
 
 comm.o: comm.c.o
 
@@ -176,7 +149,7 @@ comm.o: comm.c.o
 
 # target to build an object file
 comm.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/avl_tree.dir/build.make CMakeFiles/avl_tree.dir/comm.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/hash.dir/build.make CMakeFiles/hash.dir/comm.c.o
 .PHONY : comm.c.o
 
 comm.i: comm.c.i
@@ -185,7 +158,7 @@ comm.i: comm.c.i
 
 # target to preprocess a source file
 comm.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/avl_tree.dir/build.make CMakeFiles/avl_tree.dir/comm.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/hash.dir/build.make CMakeFiles/hash.dir/comm.c.i
 .PHONY : comm.c.i
 
 comm.s: comm.c.s
@@ -194,8 +167,35 @@ comm.s: comm.c.s
 
 # target to generate assembly for a file
 comm.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/avl_tree.dir/build.make CMakeFiles/avl_tree.dir/comm.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/hash.dir/build.make CMakeFiles/hash.dir/comm.c.s
 .PHONY : comm.c.s
+
+hash_tbl.o: hash_tbl.c.o
+
+.PHONY : hash_tbl.o
+
+# target to build an object file
+hash_tbl.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/hash.dir/build.make CMakeFiles/hash.dir/hash_tbl.c.o
+.PHONY : hash_tbl.c.o
+
+hash_tbl.i: hash_tbl.c.i
+
+.PHONY : hash_tbl.i
+
+# target to preprocess a source file
+hash_tbl.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/hash.dir/build.make CMakeFiles/hash.dir/hash_tbl.c.i
+.PHONY : hash_tbl.c.i
+
+hash_tbl.s: hash_tbl.c.s
+
+.PHONY : hash_tbl.s
+
+# target to generate assembly for a file
+hash_tbl.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/hash.dir/build.make CMakeFiles/hash.dir/hash_tbl.c.s
+.PHONY : hash_tbl.c.s
 
 main.o: main.c.o
 
@@ -203,7 +203,7 @@ main.o: main.c.o
 
 # target to build an object file
 main.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/avl_tree.dir/build.make CMakeFiles/avl_tree.dir/main.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/hash.dir/build.make CMakeFiles/hash.dir/main.c.o
 .PHONY : main.c.o
 
 main.i: main.c.i
@@ -212,7 +212,7 @@ main.i: main.c.i
 
 # target to preprocess a source file
 main.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/avl_tree.dir/build.make CMakeFiles/avl_tree.dir/main.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/hash.dir/build.make CMakeFiles/hash.dir/main.c.i
 .PHONY : main.c.i
 
 main.s: main.c.s
@@ -221,7 +221,7 @@ main.s: main.c.s
 
 # target to generate assembly for a file
 main.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/avl_tree.dir/build.make CMakeFiles/avl_tree.dir/main.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/hash.dir/build.make CMakeFiles/hash.dir/main.c.s
 .PHONY : main.c.s
 
 # Help Target
@@ -232,13 +232,13 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... avl_tree"
-	@echo "... avl_tree.o"
-	@echo "... avl_tree.i"
-	@echo "... avl_tree.s"
+	@echo "... hash"
 	@echo "... comm.o"
 	@echo "... comm.i"
 	@echo "... comm.s"
+	@echo "... hash_tbl.o"
+	@echo "... hash_tbl.i"
+	@echo "... hash_tbl.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
