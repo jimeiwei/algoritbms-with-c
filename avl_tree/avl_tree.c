@@ -3,22 +3,30 @@
 //
 
 #include "avl_tree.h"
-
+#include "stack.h"
+#include "comm.h"
 
 AVL_TREE_NODE_T *p_inital_node = NULL;
 AVL_TREE_MNG_T *p_avl_tree_mng = NULL;
 
-void avl_tree_init(void)
+
+typedef void (*AVL_TREE_PRE_ORDER_FUN) (AVL_TREE_KEY_T* p_key1, AVL_TREE_KEY_T* p_key2, void* p_fun_rtn);
+
+
+WORD32 avl_tree_init(void)
 {
+	WORD32 rtn = 0;
+
     p_avl_tree_mng = (AVL_TREE_MNG_T *)malloc(sizeof(AVL_TREE_MNG_T));
     COMM_CHECK_POINT(p_avl_tree_mng);
-
-    //p_inital_node = (AVL_TREE_NODE_T *)malloc(sizeof(AVL_TREE_NODE_T));
-    //COMM_CHECK_POINT(p_inital_node);
 
     p_avl_tree_mng->p_root_node = NULL;
     p_avl_tree_mng->is_init = 1;
     p_avl_tree_mng->node_num += 1;
+
+	rtn = stack_mng_init();
+	COMM_CHECK_RC(rtn);
+	return COMM_OK;
 }
 
 
@@ -120,11 +128,32 @@ AVL_TREE_NODE_T* avl_tree_maximun(void)
 
 
 /*后继，需要等到遍历完成*/
-AVL_TREE_NODE_T* avl_tree_successor(void)
+AVL_TREE_NODE_T* avl_tree_successor(AVL_TREE_KEY_T *p_node_key)
 {
     AVL_TREE_NODE_T *p_tree_successor_node = NULL;
+    AVL_TREE_NODE_T *p_tree_searched_node = NULL;
 
-    assert(p_avl_tree_mng->is_init);
+	COMM_CHECK_POINT(p_node_key);
+
+	assert(p_avl_tree_mng->is_init);
+	p_tree_searched_node = avl_tree_search(p_node_key);
+
+	if(p_tree_searched_node != NULL)
+	{
+		if(p_tree_searched_node->p_right != NULL)
+		{
+			p_tree_successor_node = p_tree_searched_node->p_right;
+		}
+		else
+		{
+			if(p_avl_tree_mng->p_root_node->p_right != NULL)
+			{
+				p_tree_successor_node = p_avl_tree_mng->p_root_node->p_right;
+			}
+		}
+	}
+
+	/*没有找到节点，返回空节点*/
     return p_tree_successor_node;
 }
 
@@ -222,6 +251,105 @@ WORD32 avl_tree_insert(AVL_TREE_KEY_T *p_node_key)
 
 
 
+/*前序遍历，非递归方法*/
+WORD32 avl_tree_pre_order_traveral(AVL_TREE_PRE_ORDER_FUN p_pre_opder_fun, void* p_key1, void* p_fun_rtn)
+{
+	WORD32 rtn = 0;
+	AVL_TREE_NODE_T *p_left_child_node = NULL;
+	AVL_TREE_NODE_T *p_left_child_node_poped = NULL;
+	STACK_NODE_T *p_stack_node_poped = NULL;
+	STACK_MNG_T *p_stack_ctrl = NULL;
+	AVL_TREE_KEY_T *p_avl_tree_key = NULL;
+
+	COMM_CHECK_POINT(p_fun_rtn);
+	COMM_CHECK_POINT(p_key1);
+	COMM_CHECK_POINT(p_avl_tree_mng);
+	COMM_CHECK_POINT(p_pre_opder_fun);
+	assert(p_avl_tree_mng->is_init);
+	assert(p_avl_tree_mng->p_root_node);
+
+	p_left_child_node = p_avl_tree_mng->p_root_node;
+
+	/*遍历左子树*/
+	while (p_left_child_node != NULL)
+	{
+		rtn = stack_node_push((void*) p_left_child_node);
+		COMM_CHECK_RC(rtn);
+
+		p_left_child_node = p_left_child_node->p_left;
+	}
+	p_stack_ctrl = stack_mng_ctrl_get();
+	COMM_CHECK_POINT(p_stack_ctrl);
+
+	while(p_stack_ctrl->node_num > 1)
+	{
+		p_stack_node_poped = stack_node_pop();
+		COMM_CHECK_POINT(p_stack_node_poped);
+
+		p_left_child_node_poped = (AVL_TREE_NODE_T*)p_stack_node_poped->p_stack_content;
+		COMM_CHECK_POINT(p_stack_node_poped);
+
+		/*调用传入的函数指针*/
+		p_avl_tree_key = (AVL_TREE_KEY_T *)p_key1;
+		p_pre_opder_fun(p_avl_tree_key, p_left_child_node_poped->p_node_key, p_fun_rtn);
+
+		if (p_left_child_node_poped->p_right != NULL)
+		{
+			p_left_child_node = p_left_child_node_poped->p_right;
+
+			while (p_left_child_node != NULL)
+			{
+				rtn = stack_node_push((void*) p_left_child_node);
+				COMM_CHECK_RC(rtn);
+
+				p_left_child_node = p_left_child_node->p_left;
+			}
+		}
+	}
+
+	p_left_child_node = p_avl_tree_mng->p_root_node->p_right;
+	/*遍历右子树*/
+	while (p_left_child_node != NULL)
+	{
+		rtn = stack_node_push((void*) p_left_child_node);
+		COMM_CHECK_RC(rtn);
+
+		p_left_child_node = p_left_child_node->p_left;
+	}
+
+	p_stack_ctrl = stack_mng_ctrl_get();
+	COMM_CHECK_POINT(p_stack_ctrl);
+
+	while(p_stack_ctrl->node_num > 1)
+	{
+		p_stack_node_poped = stack_node_pop();
+		COMM_CHECK_POINT(p_stack_node_poped);
+
+		p_left_child_node_poped = (AVL_TREE_NODE_T*)p_stack_node_poped->p_stack_content;
+		COMM_CHECK_POINT(p_stack_node_poped);
+
+		/*调用传入的函数指针*/
+		p_avl_tree_key = (AVL_TREE_KEY_T *)p_key1;
+		p_pre_opder_fun(p_avl_tree_key, p_left_child_node_poped->p_node_key, p_fun_rtn);
+
+		if (p_left_child_node_poped->p_right != NULL)
+		{
+			p_left_child_node = p_left_child_node_poped->p_right;
+
+			while (p_left_child_node != NULL)
+			{
+				rtn = stack_node_push((void*) p_left_child_node);
+				COMM_CHECK_RC(rtn);
+
+				p_left_child_node = p_left_child_node->p_left;
+			}
+		}
+	}
+
+	return COMM_OK;
+}
+
+
 
 /*avl树的旋转*/
 
@@ -230,6 +358,7 @@ WORD32 avl_tree_insert(AVL_TREE_KEY_T *p_node_key)
  */
 WORD32 avl_tree_node_balance_para_get(AVL_TREE_KEY_T *p_node_key)
 {
+	
 
 }
 

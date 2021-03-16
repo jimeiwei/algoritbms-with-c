@@ -24,6 +24,10 @@
         if (point == NULL)      \
         assert(0)
 
+#define COMM_CHECK_RC(rc) \
+		if (rc != COMM_OK)       \
+			assert(0)
+
 
 
 
