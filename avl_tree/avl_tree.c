@@ -22,11 +22,15 @@ WORD32 avl_tree_init(void)
 {
 	WORD32 rtn = 0;
 
-	if(p_avl_tree_mng->is_init)
+	if(p_avl_tree_mng != NULL)
 	{
-		printf("Tree mng is init already\n");
-		return COMM_OK;
+		if(p_avl_tree_mng->is_init)
+		{
+			printf("Tree mng is init already\n");
+			return COMM_OK;
+		}
 	}
+
     p_avl_tree_mng = (AVL_TREE_MNG_T *)malloc(sizeof(AVL_TREE_MNG_T));
     COMM_CHECK_POINT(p_avl_tree_mng);
 
@@ -92,11 +96,12 @@ AVL_TREE_NODE_T* avl_tree_search(AVL_TREE_KEY_T *p_node_key)
     assert(p_avl_tree_mng->is_init);
     COMM_CHECK_POINT(p_node_key);
 
-    p_tree_node = p_inital_node;
+    p_tree_node = p_avl_tree_mng->p_root_node;
+	COMM_CHECK_POINT(p_tree_node);
 
     while(p_tree_node != NULL)
     {
-        rc = avl_tree_compare(p_tree_node->p_node_key, p_node_key);
+        rc = avl_tree_compare(p_tree_node, p_node_key);
 
         if(rc == AVL_TREE_SEARCH_EQUAL)
         {
@@ -243,7 +248,7 @@ WORD32 avl_tree_insert(AVL_TREE_KEY_T *p_node_key)
 
     p_avl_tree_insert_node = (AVL_TREE_NODE_T *)malloc(sizeof(AVL_TREE_NODE_T));
     COMM_CHECK_POINT(p_avl_tree_insert_node);
-    memcpy(p_avl_tree_insert_node->p_node_key, p_node_key, sizeof(AVL_TREE_KEY_T));
+    p_avl_tree_insert_node->p_node_key = p_node_key;
 	p_avl_tree_insert_node->p_left  = NULL;
 	p_avl_tree_insert_node->p_right = NULL;
 
@@ -262,7 +267,7 @@ WORD32 avl_tree_insert(AVL_TREE_KEY_T *p_node_key)
 		{
 			p_avl_tree_curr_parent_node = p_avl_tree_curr_node;
 
-			rc = avl_tree_compare(p_avl_tree_curr_parent_node->p_node_key, p_avl_tree_insert_node->p_node_key);
+			rc = avl_tree_compare(p_avl_tree_curr_parent_node, p_avl_tree_insert_node->p_node_key);
 			if(rc == AVL_TREE_SEARCH_LEFT)
 			{
 				p_avl_tree_curr_node = p_avl_tree_curr_parent_node->p_left;
@@ -280,13 +285,13 @@ WORD32 avl_tree_insert(AVL_TREE_KEY_T *p_node_key)
 		if(rc == AVL_TREE_SEARCH_RIGHT)
 		{
 			p_avl_tree_curr_parent_node->p_right = p_avl_tree_insert_node;
-
+			p_avl_tree_insert_node->p_parent = p_avl_tree_curr_parent_node;
 			return AVL_TREE_INSERT_SUCC_RIGHT;
 		}
 		else
 		{
 			p_avl_tree_curr_parent_node->p_left = p_avl_tree_insert_node;
-
+			p_avl_tree_insert_node->p_parent = p_avl_tree_curr_parent_node;
 			return AVL_TREE_INSERT_SUCC_LEFT;
 		}
 	}
@@ -410,12 +415,12 @@ WORD32 avl_tree_pre_order_traveral(AVL_TREE_PRE_ORDER_FUN p_pre_opder_fun, void*
  * @data    :
  * @remark  : 为了获取平衡因子
  */
-WORD32 avl_tree_level_order_traveral(AVL_TREE_KEY_T *p_node_key, WORD32 *p_left_level, WORD32 *p_right_level)
+WORD32 avl_tree_level_order_traveral(AVL_TREE_KEY_T *p_node_key, SWORD32 *p_left_level, SWORD32 *p_right_level)
 {
 	WORD32 rtn = 0;
 	WORD32 i   = 0;
-	WORD32 tree_left_level  = 0;
-	WORD32 tree_right_level = 0;
+	SWORD32 tree_left_level  = 0;
+	SWORD32 tree_right_level = 0;
 	WORD32 level_node_num = 0;
 	WORD32 loop_level_node_num = 0;
 	AVL_TREE_NODE_T *p_searched_child_node  = NULL;
@@ -440,6 +445,7 @@ WORD32 avl_tree_level_order_traveral(AVL_TREE_KEY_T *p_node_key, WORD32 *p_left_
 	}
 	else
 	{
+		tree_left_level += 1;
 		if(p_left_child_node->p_left)
 		{
 			loop_level_node_num += 1;
@@ -457,7 +463,14 @@ WORD32 avl_tree_level_order_traveral(AVL_TREE_KEY_T *p_node_key, WORD32 *p_left_
 		/*遍历左子树*/
 		while (1)
 		{
-			tree_left_level += 1;
+			if(loop_level_node_num)
+			{
+				tree_right_level += 1;
+			}
+			else
+			{
+				break;
+			}
 
 			for (i = 0; i < loop_level_node_num; i++)
 			{
@@ -467,24 +480,19 @@ WORD32 avl_tree_level_order_traveral(AVL_TREE_KEY_T *p_node_key, WORD32 *p_left_
 				p_left_child_node_poped = (AVL_TREE_NODE_T*)p_stack_node_poped->p_stack_content;
 				COMM_CHECK_POINT(p_stack_node_poped);
 
-				if(p_left_child_node->p_left)
+				if(p_left_child_node_poped->p_left)
 				{
 					level_node_num += 1;
 					rtn  = stack_node_push((void*) p_left_child_node->p_left);
 					COMM_CHECK_RC(rtn);
 				}
 
-				if(p_left_child_node->p_right)
+				if(p_left_child_node_poped->p_right)
 				{
 					level_node_num += 1;
 					rtn  = stack_node_push((void*) p_left_child_node->p_right);
 					COMM_CHECK_RC(rtn);
 				}
-			}
-
-			if(level_node_num == 0)
-			{
-				break;
 			}
 
 			loop_level_node_num = level_node_num;
@@ -500,10 +508,12 @@ WORD32 avl_tree_level_order_traveral(AVL_TREE_KEY_T *p_node_key, WORD32 *p_left_
 	}
 	else
 	{
-		if(p_right_child_node->p_right)
+		tree_right_level += 1;
+
+		if(p_right_child_node->p_left)
 		{
 			loop_level_node_num += 1;
-			rtn  = stack_node_push((void*) p_right_child_node->p_right);
+			rtn  = stack_node_push((void*) p_right_child_node->p_left);
 			COMM_CHECK_RC(rtn);
 		}
 
@@ -517,7 +527,14 @@ WORD32 avl_tree_level_order_traveral(AVL_TREE_KEY_T *p_node_key, WORD32 *p_left_
 		/*遍历左子树*/
 		while (1)
 		{
-			tree_right_level += 1;
+			if(loop_level_node_num)
+			{
+				tree_right_level += 1;
+			}
+			else
+			{
+				break;
+			}
 
 			for (i = 0; i < loop_level_node_num; i++)
 			{
@@ -527,24 +544,19 @@ WORD32 avl_tree_level_order_traveral(AVL_TREE_KEY_T *p_node_key, WORD32 *p_left_
 				p_right_child_node_poped = (AVL_TREE_NODE_T*)p_stack_node_poped->p_stack_content;
 				COMM_CHECK_POINT(p_stack_node_poped);
 
-				if(p_right_child_node->p_right)
+				if(p_right_child_node_poped->p_left)
+				{
+					level_node_num += 1;
+					rtn  = stack_node_push((void*) p_right_child_node->p_left);
+					COMM_CHECK_RC(rtn);
+				}
+
+				if(p_right_child_node_poped->p_right)
 				{
 					level_node_num += 1;
 					rtn  = stack_node_push((void*) p_right_child_node->p_right);
 					COMM_CHECK_RC(rtn);
 				}
-
-				if(p_right_child_node->p_right)
-				{
-					level_node_num += 1;
-					rtn  = stack_node_push((void*) p_right_child_node->p_right);
-					COMM_CHECK_RC(rtn);
-				}
-			}
-
-			if(level_node_num == 0)
-			{
-				break;
 			}
 
 			loop_level_node_num = level_node_num;
@@ -566,11 +578,11 @@ WORD32 avl_tree_level_order_traveral(AVL_TREE_KEY_T *p_node_key, WORD32 *p_left_
  * @data    :
  * @remark  : 节点从左算，到某个叶子节点最长路径为左深度，往右算为右深度，平衡因子 = 右深度 - 左深度
  */
-WORD32 avl_tree_node_balance_para_get(AVL_TREE_KEY_T *p_node_key, WORD32* p_balance_para)
+WORD32 avl_tree_node_balance_para_get(AVL_TREE_KEY_T *p_node_key, SWORD32* p_balance_para)
 {
 	WORD32 rtn = 0;
-	WORD32 tree_left_depth  = 0;
-	WORD32 tree_right_depth = 0;
+	SWORD32 tree_left_depth  = 0;
+	SWORD32 tree_right_depth = 0;
 	AVL_TREE_NODE_T *p_search_node = NULL;
 
 	COMM_CHECK_POINT(p_node_key);
@@ -586,6 +598,174 @@ WORD32 avl_tree_node_balance_para_get(AVL_TREE_KEY_T *p_node_key, WORD32* p_bala
 
 
 
+/** 检查是否为root节点
+ * @param   :
+ * @auther  : jimw
+ * @return  : TT_OK: 成功 TT_ERR: 失败
+ * @data    :
+ * @remark  :
+ */
+WORD32 avl_tree_root_node_check(AVL_TREE_KEY_T *p_node_key)
+{
+	WORD32 rtn = 0;
+	AVL_TREE_NODE_T *p_search_node = NULL;
 
+	COMM_CHECK_POINT(p_node_key);
+	p_search_node = avl_tree_search(p_node_key);
+
+	if(avl_tree_compare(p_search_node, p_avl_tree_mng->p_root_node->p_node_key) == AVL_TREE_SEARCH_EQUAL)
+	{
+		return 1;
+	}
+
+	return 0;
+}
+
+
+
+WORD32 avl_tree_check_left_right(AVL_TREE_KEY_T *p_node_key)
+{
+	WORD32 rtn = 0;
+	AVL_TREE_NODE_T *p_search_node = NULL;
+
+	COMM_CHECK_POINT(p_node_key);
+	p_search_node = avl_tree_search(p_node_key);
+
+	if(memcmp(p_search_node->p_parent->p_node_key, p_search_node->p_parent->p_left->p_node_key, sizeof(AVL_TREE_KEY_T)) == 0)
+	{
+		return 1;
+	}
+	else if(memcmp(p_search_node->p_parent->p_node_key, p_search_node->p_parent->p_right->p_node_key, sizeof(AVL_TREE_KEY_T)) == 0)
+	{
+		return 0;
+	}
+}
+
+/** 删除某个节点
+ * @param   :
+ * @auther  : jimw
+ * @return  : TT_OK: 成功 TT_ERR: 失败
+ * @data    :
+ * @remark  :
+ */
+WORD32 avl_tree_delete(AVL_TREE_KEY_T *p_node_key)
+{
+	WORD32 rtn = 0;
+	AVL_TREE_NODE_T *p_search_node = NULL;
+	AVL_TREE_NODE_T *p_search_node_left = NULL;
+	AVL_TREE_NODE_T *p_search_successor_node = NULL;
+
+	COMM_CHECK_POINT(p_node_key);
+	p_search_node = avl_tree_search(p_node_key);
+
+	if(p_search_node == NULL)
+	{
+		return AVL_TREE_SEARCH_NOT_FOUND;
+	}
+
+	/*都为空节点*/
+	if(p_search_node->p_right == NULL && p_search_node->p_left == NULL)
+	{
+		if(avl_tree_root_node_check(p_node_key))
+		{
+			p_avl_tree_mng->p_root_node = NULL;
+		}
+		else
+		{
+			if(avl_tree_check_left_right(p_node_key))
+			{
+				p_search_node->p_parent->p_left = NULL;
+			}
+			else
+			{
+				p_search_node->p_parent->p_right = NULL;
+			}
+		}
+	}
+	/*有一个不是空节点*/
+	else if (p_search_node->p_right == NULL || p_search_node->p_left == NULL)
+	{
+		if(avl_tree_root_node_check(p_node_key))
+		{
+			if (p_search_node->p_left)
+			{
+				p_avl_tree_mng->p_root_node = p_search_node->p_left;
+			}
+			else if (p_search_node->p_right)
+			{
+				p_avl_tree_mng->p_root_node = p_search_node->p_right;
+			}
+		}
+		else
+		{
+			if(avl_tree_check_left_right(p_node_key))
+			{
+				if (p_search_node->p_left)
+				{
+					p_search_node->p_parent->p_left = p_search_node->p_left;
+				}
+				else if (p_search_node->p_right)
+				{
+					p_search_node->p_parent->p_left = p_search_node->p_right;
+				}
+			}
+			else
+			{
+				if (p_search_node->p_left)
+				{
+					p_search_node->p_parent->p_right = p_search_node->p_left;
+				}
+				else if (p_search_node->p_right)
+				{
+					p_search_node->p_parent->p_right = p_search_node->p_right;
+				}
+			}
+		}
+	}
+	else
+	{
+		p_search_successor_node = avl_tree_successor(p_node_key);
+		if(p_search_successor_node == NULL)
+		{
+			return AVL_TREE_DELETE_FAIL;
+		}
+
+		if(avl_tree_root_node_check(p_node_key))
+		{
+			p_avl_tree_mng->p_root_node = p_search_successor_node;
+		}
+		else
+		{
+			if(avl_tree_check_left_right(p_node_key))
+			{
+				p_search_node_left = p_search_node->p_left;
+				p_search_node->p_parent->p_left = p_search_successor_node;
+
+				while(p_search_node != NULL)
+				{
+					p_search_node = p_search_node->p_left;
+				}
+
+				p_search_node->p_parent->p_left = p_search_node_left;
+			}
+			else
+			{
+				p_search_node_left = p_search_node->p_left;
+				p_search_node->p_parent->p_right = p_search_successor_node;
+
+				while(p_search_node != NULL)
+				{
+					p_search_node = p_search_node->p_left;
+				}
+
+				p_search_node->p_parent->p_left = p_search_node_left;
+			}
+		}
+	}
+
+	free(p_search_node);
+	p_avl_tree_mng->node_num -= 1;
+	return AVL_TREE_DELETE_SUCC;
+}
 
 

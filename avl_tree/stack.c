@@ -114,12 +114,11 @@ STACK_NODE_T* stack_fisrt_node_get(void)
 
 /* 出栈
  * */
-STACK_NODE_T * stack_node_pop()
+STACK_NODE_T * stack_node_pop(void)
 {
 	WORD32 loop_num = 0;
 	STACK_NODE_T *p_first_node = NULL;
 
-	COMM_CHECK_POINT(p_first_node);
 	COMM_CHECK_POINT(g_stack_mng_t);
 	assert(g_stack_mng_t->is_init);
 

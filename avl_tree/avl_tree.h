@@ -9,19 +9,22 @@
 #include "comm.h"
 
 
-#define AVL_TREE_SEARCH_LEFT        (0x1000)
-#define AVL_TREE_SEARCH_RIGHT       (0x1000 | 0X1)
-#define AVL_TREE_SEARCH_EQUAL       (0x1000 | 0X2)
-#define AVL_TREE_SEARCH_SUCC        (0x1000 | 0X3)
-#define AVL_TREE_SEARCH_FAIL        (0x1000 | 0X4)
+#define AVL_TREE_SEARCH_LEFT            (0x1000)
+#define AVL_TREE_SEARCH_RIGHT           (0x1000 | 0X1)
+#define AVL_TREE_SEARCH_EQUAL           (0x1000 | 0X2)
+#define AVL_TREE_SEARCH_SUCC            (0x1000 | 0X3)
+#define AVL_TREE_SEARCH_FAIL            (0x1000 | 0X4)
+#define AVL_TREE_SEARCH_NOT_FOUND       (0x1000 | 0X5)
+#define AVL_TREE_SEARCH_NOT_ROOT_NODE   (0x1000 | 0X6)
+#define AVL_TREE_SEARCH_ROOT_NODE       (0x1000 | 0X7)
 
-#define AVL_TREE_INSERT_UPDATE      (0x1000 | 0X5)
-#define AVL_TREE_INSERT_SUCC_RIGHT  (0x1000 | 0X6)
-#define AVL_TREE_INSERT_SUCC_LEFT   (0x1000 | 0X7)
-#define AVL_TREE_INSERT_SUCC_ROOT   (0x1000 | 0X8)
+#define AVL_TREE_INSERT_UPDATE          (0x1100 | 0X1)
+#define AVL_TREE_INSERT_SUCC_RIGHT      (0x1100 | 0X2)
+#define AVL_TREE_INSERT_SUCC_LEFT       (0x1100 | 0X3)
+#define AVL_TREE_INSERT_SUCC_ROOT       (0x1100 | 0X4)
 
-
-
+#define AVL_TREE_DELETE_SUCC            (0x1200 | 0X1)
+#define AVL_TREE_DELETE_FAIL            (0x1200 | 0X2)
 
 
 
@@ -64,8 +67,8 @@ AVL_TREE_NODE_T* avl_tree_successor(AVL_TREE_KEY_T *p_node_key);
 AVL_TREE_NODE_T* avl_tree_predecessor(AVL_TREE_KEY_T *p_node_key);
 WORD32 avl_tree_insert(AVL_TREE_KEY_T *p_node_key);
 WORD32 avl_tree_pre_order_traveral(AVL_TREE_PRE_ORDER_FUN p_pre_opder_fun, void* p_key1, void* p_fun_rtn);
-WORD32 avl_tree_level_order_traveral(AVL_TREE_KEY_T *p_node_key, WORD32 *p_left_level, WORD32 *p_right_level);
-WORD32 avl_tree_node_balance_para_get(AVL_TREE_KEY_T *p_node_key, WORD32* p_balance_para);
-
+WORD32 avl_tree_level_order_traveral(AVL_TREE_KEY_T *p_node_key, SWORD32 *p_left_level, SWORD32 *p_right_level);
+WORD32 avl_tree_node_balance_para_get(AVL_TREE_KEY_T *p_node_key, SWORD32* p_balance_para);
+WORD32 avl_tree_delete(AVL_TREE_KEY_T *p_node_key);
 
 #endif //AVL_TREE_AVL_TREE_H
