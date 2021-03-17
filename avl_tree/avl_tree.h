@@ -8,6 +8,7 @@
 
 #include "comm.h"
 
+
 #define AVL_TREE_SEARCH_LEFT        (0x1000)
 #define AVL_TREE_SEARCH_RIGHT       (0x1000 | 0X1)
 #define AVL_TREE_SEARCH_EQUAL       (0x1000 | 0X2)
@@ -51,6 +52,20 @@ typedef struct avl_tree_key_t
 }AVL_TREE_KEY_T;
 
 
+typedef void (*AVL_TREE_PRE_ORDER_FUN) (AVL_TREE_KEY_T* p_key1, AVL_TREE_KEY_T* p_key2, void* p_fun_rtn);
+
+
+WORD32 avl_tree_init(void);
+WORD32 avl_tree_compare(AVL_TREE_NODE_T *p_tree_node, AVL_TREE_KEY_T *p_node_key);
+AVL_TREE_NODE_T* avl_tree_search(AVL_TREE_KEY_T *p_node_key);
+AVL_TREE_NODE_T* avl_tree_minumin(void);
+AVL_TREE_NODE_T* avl_tree_maximun(void);
+AVL_TREE_NODE_T* avl_tree_successor(AVL_TREE_KEY_T *p_node_key);
+AVL_TREE_NODE_T* avl_tree_predecessor(AVL_TREE_KEY_T *p_node_key);
+WORD32 avl_tree_insert(AVL_TREE_KEY_T *p_node_key);
+WORD32 avl_tree_pre_order_traveral(AVL_TREE_PRE_ORDER_FUN p_pre_opder_fun, void* p_key1, void* p_fun_rtn);
+WORD32 avl_tree_level_order_traveral(AVL_TREE_KEY_T *p_node_key, WORD32 *p_left_level, WORD32 *p_right_level);
+WORD32 avl_tree_node_balance_para_get(AVL_TREE_KEY_T *p_node_key, WORD32* p_balance_para);
 
 
 #endif //AVL_TREE_AVL_TREE_H

@@ -10,13 +10,23 @@ AVL_TREE_NODE_T *p_inital_node = NULL;
 AVL_TREE_MNG_T *p_avl_tree_mng = NULL;
 
 
-typedef void (*AVL_TREE_PRE_ORDER_FUN) (AVL_TREE_KEY_T* p_key1, AVL_TREE_KEY_T* p_key2, void* p_fun_rtn);
 
-
+/** 红黑树初始化
+ * @param   :
+ * @auther  : jimw
+ * @return  : TT_OK: 成功 TT_ERR: 失败
+ * @data    :
+ * @remark  :
+ */
 WORD32 avl_tree_init(void)
 {
 	WORD32 rtn = 0;
 
+	if(p_avl_tree_mng->is_init)
+	{
+		printf("Tree mng is init already\n");
+		return COMM_OK;
+	}
     p_avl_tree_mng = (AVL_TREE_MNG_T *)malloc(sizeof(AVL_TREE_MNG_T));
     COMM_CHECK_POINT(p_avl_tree_mng);
 
@@ -31,6 +41,13 @@ WORD32 avl_tree_init(void)
 
 
 
+/** 节点对比
+ * @param   :
+ * @auther  : jimw
+ * @return  : TT_OK: 成功 TT_ERR: 失败
+ * @data    :
+ * @remark  :
+ */
 WORD32 avl_tree_compare(AVL_TREE_NODE_T *p_tree_node, AVL_TREE_KEY_T *p_node_key)
 {
     SWORD32 rc = 0;
@@ -60,7 +77,13 @@ WORD32 avl_tree_compare(AVL_TREE_NODE_T *p_tree_node, AVL_TREE_KEY_T *p_node_key
     }
 }
 
-
+/** 根据键值查找节点
+ * @param   :
+ * @auther  : jimw
+ * @return  : TT_OK: 成功 TT_ERR: 失败
+ * @data    :
+ * @remark  :
+ */
 AVL_TREE_NODE_T* avl_tree_search(AVL_TREE_KEY_T *p_node_key)
 {
     WORD32 rc = 0;
@@ -92,7 +115,13 @@ AVL_TREE_NODE_T* avl_tree_search(AVL_TREE_KEY_T *p_node_key)
     return p_tree_node;
 }
 
-
+/**
+ * @param   :
+ * @auther  : jimw
+ * @return  : TT_OK: 成功 TT_ERR: 失败
+ * @data    :
+ * @remark  :
+ */
 AVL_TREE_NODE_T* avl_tree_minumin(void)
 {
     AVL_TREE_NODE_T *p_tree_left_node = NULL;
@@ -127,7 +156,13 @@ AVL_TREE_NODE_T* avl_tree_maximun(void)
 
 
 
-/*后继，需要等到遍历完成*/
+/** 获取后继节点
+ * @param   :
+ * @auther  : jimw
+ * @return  : TT_OK: 成功 TT_ERR: 失败
+ * @data    :
+ * @remark  :
+ */
 AVL_TREE_NODE_T* avl_tree_successor(AVL_TREE_KEY_T *p_node_key)
 {
     AVL_TREE_NODE_T *p_tree_successor_node = NULL;
@@ -157,9 +192,13 @@ AVL_TREE_NODE_T* avl_tree_successor(AVL_TREE_KEY_T *p_node_key)
     return p_tree_successor_node;
 }
 
-
-
-/*前驱*/
+/** 前驱
+ * @param   :
+ * @auther  : jimw
+ * @return  : TT_OK: 成功 TT_ERR: 失败
+ * @data    :
+ * @remark  :
+ */
 AVL_TREE_NODE_T* avl_tree_predecessor(AVL_TREE_KEY_T *p_node_key)
 {
     WORD32 rc = 0;
@@ -185,7 +224,13 @@ AVL_TREE_NODE_T* avl_tree_predecessor(AVL_TREE_KEY_T *p_node_key)
 
 
 
-
+/** 插入节点
+ * @param   :
+ * @auther  : jimw
+ * @return  : TT_OK: 成功 TT_ERR: 失败
+ * @data    :
+ * @remark  :
+ */
 WORD32 avl_tree_insert(AVL_TREE_KEY_T *p_node_key)
 {
     WORD32 rc = 0;
@@ -251,7 +296,13 @@ WORD32 avl_tree_insert(AVL_TREE_KEY_T *p_node_key)
 
 
 
-/*前序遍历，非递归方法*/
+/** 前序遍历，非递归方法
+ * @param   :
+ * @auther  : jimw
+ * @return  : TT_OK: 成功 TT_ERR: 失败
+ * @data    :
+ * @remark  :
+ */
 WORD32 avl_tree_pre_order_traveral(AVL_TREE_PRE_ORDER_FUN p_pre_opder_fun, void* p_key1, void* p_fun_rtn)
 {
 	WORD32 rtn = 0;
@@ -268,7 +319,7 @@ WORD32 avl_tree_pre_order_traveral(AVL_TREE_PRE_ORDER_FUN p_pre_opder_fun, void*
 	assert(p_avl_tree_mng->is_init);
 	assert(p_avl_tree_mng->p_root_node);
 
-	p_left_child_node = p_avl_tree_mng->p_root_node;
+	p_left_child_node = p_avl_tree_mng->p_root_node->p_left;
 
 	/*遍历左子树*/
 	while (p_left_child_node != NULL)
@@ -351,15 +402,186 @@ WORD32 avl_tree_pre_order_traveral(AVL_TREE_PRE_ORDER_FUN p_pre_opder_fun, void*
 
 
 
-/*avl树的旋转*/
 
-/* 获取红黑树某个节点的平衡因子
- * 传参为节点的键值
+/** 中序遍历
+ * @param   :
+ * @auther  : jimw
+ * @return  : TT_OK: 成功 TT_ERR: 失败
+ * @data    :
+ * @remark  : 为了获取平衡因子
  */
-WORD32 avl_tree_node_balance_para_get(AVL_TREE_KEY_T *p_node_key)
+WORD32 avl_tree_level_order_traveral(AVL_TREE_KEY_T *p_node_key, WORD32 *p_left_level, WORD32 *p_right_level)
 {
-	
+	WORD32 rtn = 0;
+	WORD32 i   = 0;
+	WORD32 tree_left_level  = 0;
+	WORD32 tree_right_level = 0;
+	WORD32 level_node_num = 0;
+	WORD32 loop_level_node_num = 0;
+	AVL_TREE_NODE_T *p_searched_child_node  = NULL;
+	AVL_TREE_NODE_T *p_left_child_node  = NULL;
+	AVL_TREE_NODE_T *p_right_child_node = NULL;
+	AVL_TREE_NODE_T *p_left_child_node_poped  = NULL;
+	AVL_TREE_NODE_T *p_right_child_node_poped = NULL;
+	STACK_NODE_T *p_stack_node_poped = NULL;
 
+	assert(p_avl_tree_mng->is_init);
+	assert(p_avl_tree_mng->p_root_node);
+	COMM_CHECK_POINT(p_node_key);
+	COMM_CHECK_POINT(p_left_level);
+	COMM_CHECK_POINT(p_right_level);
+
+	p_searched_child_node = avl_tree_search(p_node_key);
+
+	p_left_child_node = p_searched_child_node->p_left;
+	if(p_left_child_node == NULL)
+	{
+		tree_left_level = 0;
+	}
+	else
+	{
+		if(p_left_child_node->p_left)
+		{
+			loop_level_node_num += 1;
+			rtn  = stack_node_push((void*) p_left_child_node->p_left);
+			COMM_CHECK_RC(rtn);
+		}
+
+		if(p_left_child_node->p_right)
+		{
+			loop_level_node_num += 1;
+			rtn  = stack_node_push((void*) p_left_child_node->p_right);
+			COMM_CHECK_RC(rtn);
+		}
+
+		/*遍历左子树*/
+		while (1)
+		{
+			tree_left_level += 1;
+
+			for (i = 0; i < loop_level_node_num; i++)
+			{
+				p_stack_node_poped = stack_node_pop();
+				COMM_CHECK_POINT(p_stack_node_poped);
+
+				p_left_child_node_poped = (AVL_TREE_NODE_T*)p_stack_node_poped->p_stack_content;
+				COMM_CHECK_POINT(p_stack_node_poped);
+
+				if(p_left_child_node->p_left)
+				{
+					level_node_num += 1;
+					rtn  = stack_node_push((void*) p_left_child_node->p_left);
+					COMM_CHECK_RC(rtn);
+				}
+
+				if(p_left_child_node->p_right)
+				{
+					level_node_num += 1;
+					rtn  = stack_node_push((void*) p_left_child_node->p_right);
+					COMM_CHECK_RC(rtn);
+				}
+			}
+
+			if(level_node_num == 0)
+			{
+				break;
+			}
+
+			loop_level_node_num = level_node_num;
+			level_node_num = 0;
+		}
+	}
+	*p_left_level = tree_left_level;
+
+	p_right_child_node = p_searched_child_node->p_right;
+	if(p_right_child_node == NULL)
+	{
+		tree_right_level = 0;
+	}
+	else
+	{
+		if(p_right_child_node->p_right)
+		{
+			loop_level_node_num += 1;
+			rtn  = stack_node_push((void*) p_right_child_node->p_right);
+			COMM_CHECK_RC(rtn);
+		}
+
+		if(p_right_child_node->p_right)
+		{
+			loop_level_node_num += 1;
+			rtn  = stack_node_push((void*) p_right_child_node->p_right);
+			COMM_CHECK_RC(rtn);
+		}
+
+		/*遍历左子树*/
+		while (1)
+		{
+			tree_right_level += 1;
+
+			for (i = 0; i < loop_level_node_num; i++)
+			{
+				p_stack_node_poped = stack_node_pop();
+				COMM_CHECK_POINT(p_stack_node_poped);
+
+				p_right_child_node_poped = (AVL_TREE_NODE_T*)p_stack_node_poped->p_stack_content;
+				COMM_CHECK_POINT(p_stack_node_poped);
+
+				if(p_right_child_node->p_right)
+				{
+					level_node_num += 1;
+					rtn  = stack_node_push((void*) p_right_child_node->p_right);
+					COMM_CHECK_RC(rtn);
+				}
+
+				if(p_right_child_node->p_right)
+				{
+					level_node_num += 1;
+					rtn  = stack_node_push((void*) p_right_child_node->p_right);
+					COMM_CHECK_RC(rtn);
+				}
+			}
+
+			if(level_node_num == 0)
+			{
+				break;
+			}
+
+			loop_level_node_num = level_node_num;
+			level_node_num = 0;
+		}
+	}
+	*p_right_level = tree_right_level;
+
+	return COMM_OK;
+}
+
+
+
+
+/** 获取红黑树某个节点的平衡因子
+ * @param   : 传参为节点的键值
+ * @auther  : jimw
+ * @return  : TT_OK: 成功 TT_ERR: 失败
+ * @data    :
+ * @remark  : 节点从左算，到某个叶子节点最长路径为左深度，往右算为右深度，平衡因子 = 右深度 - 左深度
+ */
+WORD32 avl_tree_node_balance_para_get(AVL_TREE_KEY_T *p_node_key, WORD32* p_balance_para)
+{
+	WORD32 rtn = 0;
+	WORD32 tree_left_depth  = 0;
+	WORD32 tree_right_depth = 0;
+	AVL_TREE_NODE_T *p_search_node = NULL;
+
+	COMM_CHECK_POINT(p_node_key);
+	COMM_CHECK_POINT(p_balance_para);
+
+	rtn = avl_tree_level_order_traveral(p_node_key, &tree_left_depth, &tree_right_depth);
+	COMM_CHECK_RC(rtn);
+
+	*p_balance_para = tree_right_depth - tree_left_depth;
+
+	return COMM_OK;
 }
 
 
