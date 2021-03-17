@@ -224,6 +224,33 @@ main.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/avl_tree.dir/build.make CMakeFiles/avl_tree.dir/main.c.s
 .PHONY : main.c.s
 
+stack.o: stack.c.o
+
+.PHONY : stack.o
+
+# target to build an object file
+stack.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/avl_tree.dir/build.make CMakeFiles/avl_tree.dir/stack.c.o
+.PHONY : stack.c.o
+
+stack.i: stack.c.i
+
+.PHONY : stack.i
+
+# target to preprocess a source file
+stack.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/avl_tree.dir/build.make CMakeFiles/avl_tree.dir/stack.c.i
+.PHONY : stack.c.i
+
+stack.s: stack.c.s
+
+.PHONY : stack.s
+
+# target to generate assembly for a file
+stack.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/avl_tree.dir/build.make CMakeFiles/avl_tree.dir/stack.c.s
+.PHONY : stack.c.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -242,6 +269,9 @@ help:
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... stack.o"
+	@echo "... stack.i"
+	@echo "... stack.s"
 .PHONY : help
 
 

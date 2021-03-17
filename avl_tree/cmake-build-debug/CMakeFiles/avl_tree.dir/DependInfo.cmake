@@ -7,6 +7,7 @@ set(CMAKE_DEPENDS_CHECK_C
   "/Users/jimeiwei/Documents/git_codes/algoritbms-with-c/avl_tree/avl_tree.c" "/Users/jimeiwei/Documents/git_codes/algoritbms-with-c/avl_tree/cmake-build-debug/CMakeFiles/avl_tree.dir/avl_tree.c.o"
   "/Users/jimeiwei/Documents/git_codes/algoritbms-with-c/avl_tree/comm.c" "/Users/jimeiwei/Documents/git_codes/algoritbms-with-c/avl_tree/cmake-build-debug/CMakeFiles/avl_tree.dir/comm.c.o"
   "/Users/jimeiwei/Documents/git_codes/algoritbms-with-c/avl_tree/main.c" "/Users/jimeiwei/Documents/git_codes/algoritbms-with-c/avl_tree/cmake-build-debug/CMakeFiles/avl_tree.dir/main.c.o"
+  "/Users/jimeiwei/Documents/git_codes/algoritbms-with-c/avl_tree/stack.c" "/Users/jimeiwei/Documents/git_codes/algoritbms-with-c/avl_tree/cmake-build-debug/CMakeFiles/avl_tree.dir/stack.c.o"
   )
 set(CMAKE_C_COMPILER_ID "AppleClang")
 

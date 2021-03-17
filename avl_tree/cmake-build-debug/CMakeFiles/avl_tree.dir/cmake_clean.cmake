@@ -2,6 +2,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/avl_tree.dir/avl_tree.c.o"
   "CMakeFiles/avl_tree.dir/comm.c.o"
   "CMakeFiles/avl_tree.dir/main.c.o"
+  "CMakeFiles/avl_tree.dir/stack.c.o"
   "avl_tree"
   "avl_tree.pdb"
 )

@@ -91,6 +91,12 @@
 		<Unit filename="/Users/jimeiwei/Documents/git_codes/algoritbms-with-c/avl_tree/main.c">
 			<Option target="avl_tree"/>
 		</Unit>
+		<Unit filename="/Users/jimeiwei/Documents/git_codes/algoritbms-with-c/avl_tree/stack.c">
+			<Option target="avl_tree"/>
+		</Unit>
+		<Unit filename="/Users/jimeiwei/Documents/git_codes/algoritbms-with-c/avl_tree/stack.h">
+			<Option target="avl_tree"/>
+		</Unit>
 		<Unit filename="/Users/jimeiwei/Documents/git_codes/algoritbms-with-c/avl_tree/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
